@@ -36,13 +36,13 @@ https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
 
 # RANCHER SERVER
 
-# --image-id              ami-01e7ca2ef94a0ae86
+# --image-id              ami-0574da719dca65348
 # --instance-type         t3.medium 
 # --key-name              multicloud 
-# --security-group-ids    sg-0b0e8363b215900f0 
-# --subnet-id             subnet-4f5e7705
+# --security-group-ids    sg-036da030f51f3c28a 
+# --subnet-id             subnet-754b555b
 
-$ aws ec2 run-instances --image-id ami-01e7ca2ef94a0ae86 --count 1 --instance-type t3.medium --key-name multicloud --security-group-ids sg-0b0e8363b215900f0 --subnet-id subnet-67c83f0e --user-data file://rancher.sh --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=rancherserver}]' 'ResourceType=volume,Tags=[{Key=Name,Value=rancherserver}]' 
+$ aws ec2 run-instances --image-id ami-0574da719dca65348 --count 1 --instance-type t3.medium --key-name multicloud --security-group-ids sg-036da030f51f3c28a --subnet-id subnet-754b555b --user-data file://rancher.sh --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=rancherserver}]' 'ResourceType=volume,Tags=[{Key=Name,Value=rancherserver}]' 
 
 ```
 
@@ -65,10 +65,10 @@ Criar o cluster pelo Rancher e configurar.
 # --instance-type t3.large 
 # --key-name multicloud 
 # --security-group-ids sg-0b0e8363b215900f0 
-# --subnet-id subnet-09c5a4961e6056757 
+# --subnet-id subnet-754b555b
 # --user-data file://k8s.sh
 
-$ aws ec2 run-instances --image-id ami-01e7ca2ef94a0ae86 --count 3 --instance-type t3.large --key-name multicloud --security-group-ids sg-0b0e8363b215900f0 --subnet-id subnet-67c83f0e --user-data file://k8s.sh   --block-device-mapping "[ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"VolumeSize\": 70 } } ]" --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=k8s}]' 'ResourceType=volume,Tags=[{Key=Name,Value=k8s}]'     
+$ aws ec2 run-instances --image-id ami-01e7ca2ef94a0ae86 --count 3 --instance-type t3.large --key-name multicloud --security-group-ids sg-0b0e8363b215900f0 --subnet-id subnet-754b555b --user-data file://k8s.sh   --block-device-mapping "[ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"VolumeSize\": 70 } } ]" --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=k8s}]' 'ResourceType=volume,Tags=[{Key=Name,Value=k8s}]'     
 ```
 
 Instalar o kubectl 
