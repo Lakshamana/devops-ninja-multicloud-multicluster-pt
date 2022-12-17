@@ -1,9 +1,9 @@
 #!/bin/bash
-curl https://releases.rancher.com/install-docker/19.03.sh | sh
-sudo su
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
+sudo yum update -y  
+sudo yum install -y docker
+sudo systemctl enable docker
+sudo systemctl start docker
+
 docker run -d --restart=unless-stopped \
   -p 80:80 -p 443:443 \
   --privileged \
