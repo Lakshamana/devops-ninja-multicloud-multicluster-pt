@@ -68,7 +68,7 @@ Criar o cluster pelo Rancher e configurar.
 # --subnet-id subnet-a6b7aafa
 # --user-data file://k8s.sh
 
-$ aws ec2 run-instances --image-id ami-0b5eea76982371e91 --count 3 --instance-type t3.large --key-name multicloud --security-group-ids sg-036da030f51f3c28a --subnet-id subnet-a6b7aafa --user-data file://k8s.sh   --block-device-mapping "[ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"VolumeSize\": 70 } } ]" --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=k8s}]' 'ResourceType=volume,Tags=[{Key=Name,Value=k8s}]'     
+$ aws ec2 run-instances --image-id ami-0b5eea76982371e91 --count 3 --instance-type t3.large --key-name multicloud --security-group-ids sg-036da030f51f3c28a --subnet-id subnet-a6b7aafa --user-data file://k8s.sh   --block-device-mapping "[ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"VolumeSize\": 70 } } ]" --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=k8s}]' 'ResourceType=volume,Tags=[{Key=Name,Value=k8s}]'
 ```
 
 Instalar o kubectl 
